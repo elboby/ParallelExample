@@ -14,18 +14,23 @@ h2. Requirements
 h2. Installation
 
 In any folder, run this:
-git clone http://github.com/elboby/ParallelExample
-cd ParallelExample
-git http://github.com/tnc/php-amqplib
+
+$ git clone http://github.com/elboby/ParallelExample
+$ cd ParallelExample
+$ git http://github.com/tnc/php-amqplib
 
 h2. Run
 
 In the ParallelExample folder:
+
 - Launch first the 2 consumers in 2 separate terminals:
-php consume.php a
-php consume.php b
+
+$ php consume.php a
+$ php consume.php b
+
 - In another terminal, launch the main script:
-php run_parallel.php
+
+$ php run_parallel.php
 
 h2. Output
 
