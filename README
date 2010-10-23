@@ -1,0 +1,55 @@
+h1. Parallel processing in PHP with RabbitMQ
+
+h2. Introduction
+
+This is a very simple example on how to accomplish parallel processing with PHP by using the messaging application RabbitMQ.
+See http://geekexmachina.com/2010/10/parallelizing-php-rabbitmq/ for more details.
+
+h2. Requirements
+
+- PHP 5.3
+- RabbitMQ running on localhost (update the include.php file for connection setting)
+- The library PHP-AMQPLIB from http://github.com/tnc/php-amqplib (update include.php for path to the library)
+
+h2. Installation
+
+In any folder, run this:
+git clone http://github.com/elboby/ParallelExample
+cd ParallelExample
+git http://github.com/tnc/php-amqplib
+
+h2. Run
+
+In the ParallelExample folder:
+- Launch first the 2 consumers in 2 separate terminals:
+php consume.php a
+php consume.php b
+- In another terminal, launch the main script:
+php run_parallel.php
+
+h2. Output
+
+If it works, you should see this in the consumer terminals:
+$ php consume.php a
+23:38:04: a : PHPPROCESS_24025 : start processing...
+23:38:14: a : PHPPROCESS_24025 : done in 10 seconds!
+^C
+
+$ php consume.php b
+23:38:04: b : PHPPROCESS_24025 : start processing...
+23:38:09: b : PHPPROCESS_24025 : done in 5 seconds!
+^C
+
+
+And in the main terminal
+$ php run_parallel.php 
+23:38:04 : PHPPROCESS_24025 : waiting for responses...
+array(2) {
+  ["b"]=>
+  string(15) "waited 5seconds"
+  ["a"]=>
+  string(16) "waited 10seconds"
+}
+23:38:14 : PHPPROCESS_24025 : done in 10.010743141174 seconds
+$ 
+ 
