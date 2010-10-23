@@ -35,6 +35,7 @@ $ php run_parallel.php
 h2. Output
 
 If it works, you should see this in the consumer terminals:
+
 $ php consume.php a
 23:38:04: a : PHPPROCESS_24025 : start processing...
 23:38:14: a : PHPPROCESS_24025 : done in 10 seconds!
@@ -47,6 +48,7 @@ $ php consume.php b
 
 
 And in the main terminal
+
 $ php run_parallel.php 
 23:38:04 : PHPPROCESS_24025 : waiting for responses...
 array(2) {
